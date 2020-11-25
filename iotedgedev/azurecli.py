@@ -27,7 +27,7 @@ class AzureCli:
         self._proc_terminated = False
 
     def decode(self, val):
-        return val.decode("utf-8").strip()
+        return val.decode().strip()
 
     def is_posix(self):
         return self.envvars.is_posix()

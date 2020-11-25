@@ -28,7 +28,7 @@ def test_hash256_result():
     @hash256_result
     def test_valid():
         return "test"
-    expect_hash = hashlib.sha256("test".encode('utf-8'))
+    expect_hash = hashlib.sha256("test".encode())
     assert str(expect_hash.hexdigest()) == test_valid()
 
     @hash256_result

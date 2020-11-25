@@ -66,7 +66,7 @@ class Utility:
         ttl = time() + expiry
         sign_key = "%s\n%d" % ((quote(uri)), int(ttl))
         signature = b64encode(
-            HMAC(b64decode(key), sign_key.encode("utf-8"), sha256).digest())
+            HMAC(b64decode(key), sign_key.encode(), sha256).digest())
 
         rawtoken = {
             "sr": uri,
@@ -89,7 +89,7 @@ class Utility:
                 return content
 
     def decode(self, val):
-        return val.decode("utf-8").strip()
+        return val.decode().strip()
 
     def get_config_files(self):
         # config files are in root of solution
@@ -151,7 +151,7 @@ class Utility:
 
     @staticmethod
     def get_sha256_hash(val):
-        hash_object = sha256(val.encode('utf-8'))
+        hash_object = sha256(val.encode())
 
         return str(hash_object.hexdigest()).lower()
 

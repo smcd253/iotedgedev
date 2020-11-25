@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from __future__ import absolute_import
 
 import hashlib
@@ -544,7 +542,7 @@ def list_iot_hubs_and_set_default():
     if first_iothub:
         return first_iothub
     else:
-        subscription_rg_hash = hashlib.sha1((default_subscriptionId + envvars.RESOURCE_GROUP_NAME).encode('utf-8')).hexdigest()[:6]
+        subscription_rg_hash = hashlib.sha1((default_subscriptionId + envvars.RESOURCE_GROUP_NAME).encode()).hexdigest()[:6]
         return "iotedgedev-iothub-" + subscription_rg_hash
 
 
