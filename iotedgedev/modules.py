@@ -11,16 +11,12 @@ from urllib.request import urlopen
 from . import telemetry
 from .buildoptionsparser import BuildOptionsParser
 from .buildprofile import BuildProfile
-from .compat import PY2
 from .deploymentmanifest import DeploymentManifest
 from .dockercls import Docker
 from .dotnet import DotNet
 from .module import Module
 from .utility import Utility
 from .constants import Constants
-
-if PY2:
-    from .compat import FileNotFoundError
 
 
 class Modules:

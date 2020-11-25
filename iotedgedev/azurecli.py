@@ -10,10 +10,6 @@ from azure.cli.core import get_default_cli
 from fstrings import f
 
 from . import telemetry
-from .compat import PY2
-
-if PY2:
-    from .compat import FileNotFoundError
 
 output_io_cls = StringIO
 
