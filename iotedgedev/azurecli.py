@@ -8,7 +8,6 @@ from threading import Thread, Timer
 
 from azure.cli.core import get_default_cli
 from fstrings import f
-from six.moves.queue import Empty, Queue
 
 from . import telemetry
 from .compat import PY2
@@ -147,13 +146,13 @@ class AzureCli:
                 if not process.poll():
                     try:
                         self.output.echo(stdout_queue.get_nowait())
-                    except Empty:
+                    except Queue.Empty:
                         pass
                 else:
                     err = None
                     try:
                         err = stderr_queue.get_nowait()
-                    except Empty:
+                    except Queue.Empty:
                         pass
                     # Avoid empty sys.excepthook errors from underlying future
                     # There is already a uAMQP issue in work for this
